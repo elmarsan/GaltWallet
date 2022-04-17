@@ -16,8 +16,6 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import com.cerberus.galtwallet.shared.component.FormInputText
-import com.cerberus.galtwallet.shared.component.FormInputTextData
 
 private const val TAG = "MnemonicForm"
 
@@ -36,26 +34,17 @@ private fun FormView(
     buttonText: String,
     onCreateWallet: () -> Unit
 ) {
-    val formFields = mutableListOf<FormInputTextData>()
+    val formFields = mutableListOf<MnemonicWord>()
 
-    mnemonic.forEachIndexed { i, word ->
-        var value by remember { mutableStateOf("") }
-        var errorMsg by remember { mutableStateOf("") }
+    mnemonic.forEachIndexed { i, expectedWord ->
+        var word by remember { mutableStateOf("") }
 
         formFields.add(
-            FormInputTextData(
-                value = value,
-                onValueChange = {
-                    value = it
-
-                    errorMsg = if (value != word) {
-                        "Word does not match"
-                    } else {
-                        ""
-                    }
-                },
-                errorMsg = errorMsg,
-                label = "Expected word: $word"
+            MnemonicWord(
+                word = word,
+                onWordChange = { word = it },
+                expectedWord = expectedWord,
+                wordNumber = i
             )
         )
     }
@@ -64,8 +53,7 @@ private fun FormView(
     val rightColumnFields = formFields.slice(formFields.size / 2 until formFields.size)
 
     fun validForm(): Boolean {
-        return leftColumnFields.none { !it.errorMsg.isNullOrEmpty() || it.value.isEmpty() } &&
-                rightColumnFields.none { !it.errorMsg.isNullOrEmpty() || it.value.isEmpty() }
+        return leftColumnFields.none { !it.isValid() } && rightColumnFields.none { !it.isValid() }
     }
 
     Box(
@@ -110,7 +98,7 @@ private fun FormView(
             ) {
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(leftColumnFields) {
-                        FormInputText(it)
+                        MnemonicFormTextField(it)
                         Spacer(modifier = Modifier.height(12.dp))
                     }
                 }
@@ -123,7 +111,7 @@ private fun FormView(
             ) {
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(rightColumnFields) {
-                        FormInputText(it)
+                        MnemonicFormTextField(it)
                         Spacer(modifier = Modifier.height(12.dp))
                     }
                 }

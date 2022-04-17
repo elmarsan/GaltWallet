@@ -1,5 +1,6 @@
 package com.cerberus.galtwallet.presentation.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -14,16 +15,23 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
+import com.cerberus.galtwallet.shared.component.LoadingSpinner
+
+private const val TAG = "HomeScreen"
 
 @Composable
 fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    val privateKey = viewModel.state.value
+    val state = viewModel.state.value
+
+    Log.d("HomeScreen", "app started")
 
     LaunchedEffect(Unit) {
-        if (privateKey != null) {
+        Log.d("HomeScreen", "checking wallet existence ${state.privateKey != null}")
+
+        if (state.privateKey != null) {
             navController.navigate(route = AppScreen.WalletScreen.route)
         }
     }
@@ -40,14 +48,18 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Button(onClick = { navController.navigate(AppScreen.CreateWalletScreen.route) }) {
-                        Text(text = "Create")
-                    }
+                    if (state.isLoading) {
+                        LoadingSpinner()
+                    } else {
+                        Button(onClick = { navController.navigate(AppScreen.CreateWalletScreen.route) }) {
+                            Text(text = "Create")
+                        }
 
-                    Spacer(modifier = Modifier.width(20.dp))
+                        Spacer(modifier = Modifier.width(20.dp))
 
-                    Button(onClick = { navController.navigate(AppScreen.RecoveryWalletScreen.route) }) {
-                        Text(text = "Recover")
+                        Button(onClick = { navController.navigate(AppScreen.RecoveryWalletScreen.route) }) {
+                            Text(text = "Recover")
+                        }
                     }
                 }
             }

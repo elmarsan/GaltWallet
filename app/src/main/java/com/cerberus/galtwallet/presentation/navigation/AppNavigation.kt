@@ -7,6 +7,8 @@ import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.presentation.home.HomeScreen
 import com.cerberus.galtwallet.presentation.initialize.create.CreateWalletScreen
 import com.cerberus.galtwallet.presentation.initialize.recovery.RecoveryWalletScreen
+import com.cerberus.galtwallet.presentation.receive.ReceiveScreen
+import com.cerberus.galtwallet.presentation.send.SendScreen
 import com.cerberus.galtwallet.presentation.settings.SettingsScreen
 import com.cerberus.galtwallet.presentation.transaction.TransactionScreen
 import com.cerberus.galtwallet.presentation.wallet.WalletScreen
@@ -24,5 +26,7 @@ fun AppNavigation() {
         composable(route = AppScreen.SettingsScreen.route) { SettingsScreen(navController) }
         composable(route = AppScreen.CreateWalletScreen.route) { CreateWalletScreen(navController) }
         composable(route = AppScreen.RecoveryWalletScreen.route) { RecoveryWalletScreen(navController) }
+        composable(route = AppScreen.SendScreen.route) { SendScreen(navController) }
+        composable(route = AppScreen.ReceiveScreen.route) { ReceiveScreen(navController) }
     }
 }

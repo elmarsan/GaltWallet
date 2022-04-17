@@ -7,4 +7,6 @@ sealed class AppScreen(val route: String) {
     object SettingsScreen: AppScreen("SettingsScreenRoute")
     object CreateWalletScreen: AppScreen("CreateWalletScreenRoute")
     object RecoveryWalletScreen: AppScreen("RecoveryWalletScreenRoute")
+    object SendScreen: AppScreen("SendScreenRoute")
+    object ReceiveScreen: AppScreen("ReceiveScreenRoute")
 }

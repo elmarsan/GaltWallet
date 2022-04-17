@@ -20,19 +20,10 @@ import androidx.constraintlayout.compose.Dimension
 private const val TAG = "MnemonicForm"
 
 @Composable
-fun MnemonicForm(
+fun CreateMnemonicForm(
     mnemonic: List<String>,
     buttonText: String,
     onSubmitForm: () -> Unit
-) {
-    FormView(mnemonic, buttonText, onSubmitForm)
-}
-
-@Composable
-private fun FormView(
-    mnemonic: List<String>,
-    buttonText: String,
-    onCreateWallet: () -> Unit
 ) {
     val formFields = mutableListOf<MnemonicWord>()
 
@@ -56,6 +47,37 @@ private fun FormView(
         return leftColumnFields.none { !it.isValid() } && rightColumnFields.none { !it.isValid() }
     }
 
+    MnemonicFormView(
+        leftColumnFields = leftColumnFields,
+        rightColumnFields = rightColumnFields,
+        submitButtonText = buttonText,
+        isValidForm = { validForm() },
+        onSubmitForm = onSubmitForm
+    )
+}
+
+@Composable
+fun RecoveryMnemonicForm(
+    buttonText: String,
+    onSubmitForm: () -> Unit
+) {
+    MnemonicFormView(
+        leftColumnFields = emptyList(),
+        rightColumnFields = emptyList(),
+        submitButtonText = buttonText,
+        isValidForm = { true },
+        onSubmitForm = onSubmitForm
+    )
+}
+
+@Composable
+fun MnemonicFormView(
+    leftColumnFields: List<MnemonicWord>,
+    rightColumnFields: List<MnemonicWord>,
+    onSubmitForm: () -> Unit,
+    isValidForm: () -> Boolean,
+    submitButtonText: String
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.TopStart
@@ -129,11 +151,11 @@ private fun FormView(
                     Button(
                         onClick = {
                             Log.d(TAG, "OnSubmitFormClick")
-                            onCreateWallet()
+                            onSubmitForm()
                         },
-                        enabled = validForm()
+                        enabled = isValidForm()
                     ) {
-                        Text(text = buttonText)
+                        Text(text = submitButtonText)
                     }
                 }
             }
@@ -141,23 +163,24 @@ private fun FormView(
     }
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Composable
-fun Overview() {
-    val mnemonic = listOf(
-        "Word-1",
-        "Word-2",
-        "Word-3",
-        "Word-4",
-        "Word-5",
-        "Word-6",
-        "Word-7",
-        "Word-8",
-        "Word-9",
-        "Word-10",
-        "Word-11",
-        "Word-12",
-    )
 
-    FormView(mnemonic, "Create wallet") {}
-}
+//@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+//@Composable
+//fun Overview() {
+//    val mnemonic = listOf(
+//        "Word-1",
+//        "Word-2",
+//        "Word-3",
+//        "Word-4",
+//        "Word-5",
+//        "Word-6",
+//        "Word-7",
+//        "Word-8",
+//        "Word-9",
+//        "Word-10",
+//        "Word-11",
+//        "Word-12",
+//    )
+//
+//    FormView(mnemonic, "Create wallet") {}
+//}

@@ -21,6 +21,10 @@ data class MnemonicWord(
     val onWordChange: (String) -> Unit = {},
 ) {
     fun isValid(): Boolean {
+        if (expectedWord == null) {
+            return true
+        }
+
         return word == expectedWord
     }
 

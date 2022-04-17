@@ -41,7 +41,6 @@ class CreateWalletViewModel @Inject constructor(
                 }
             }.launchIn(viewModelScope)
         }
-
     }
 
     private fun createPrivateKey() {

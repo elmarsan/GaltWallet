@@ -6,7 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.cerberus.galtwallet.presentation.initialize.component.MnemonicForm
+import com.cerberus.galtwallet.presentation.initialize.component.CreateMnemonicForm
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
 import com.cerberus.galtwallet.shared.component.LoadingSpinner
@@ -49,7 +49,7 @@ fun CreateWalletScreen(
                             onNextClick = { step = CreateWalletStep.VALIDATE_MNEMONIC }
                         )
                     } else if (step == CreateWalletStep.VALIDATE_MNEMONIC){
-                        MnemonicForm(
+                        CreateMnemonicForm(
                             mnemonic = state.privateKey.mnemonic,
                             buttonText = "CreateWallet",
                             onSubmitForm = {

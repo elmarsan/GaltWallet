@@ -162,25 +162,3 @@ fun MnemonicFormView(
         }
     }
 }
-
-
-//@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
-//@Composable
-//fun Overview() {
-//    val mnemonic = listOf(
-//        "Word-1",
-//        "Word-2",
-//        "Word-3",
-//        "Word-4",
-//        "Word-5",
-//        "Word-6",
-//        "Word-7",
-//        "Word-8",
-//        "Word-9",
-//        "Word-10",
-//        "Word-11",
-//        "Word-12",
-//    )
-//
-//    FormView(mnemonic, "Create wallet") {}
-//}

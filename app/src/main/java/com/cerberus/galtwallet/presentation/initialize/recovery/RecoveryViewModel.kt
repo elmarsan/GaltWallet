@@ -2,7 +2,7 @@ package com.cerberus.galtwallet.presentation.initialize.recovery
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cerberus.galtwallet.application.wallet.PrivateKeyPersister
+import com.cerberus.galtwallet.application.privatekey.PrivateKeyPersister
 import com.cerberus.galtwallet.domain.PrivateKey
 import com.cerberus.galtwallet.shared.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

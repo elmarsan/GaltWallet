@@ -4,12 +4,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.cerberus.galtwallet.presentation.initialize.component.CreateMnemonicForm
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
 import com.cerberus.galtwallet.shared.component.LoadingSpinner
+import com.cerberus.galtwallet.R
 
 private const val TAG = "CreateWalletScreen"
 
@@ -51,7 +53,7 @@ fun CreateWalletScreen(
                     } else if (step == CreateWalletStep.VALIDATE_MNEMONIC){
                         CreateMnemonicForm(
                             mnemonic = state.privateKey.mnemonic,
-                            buttonText = "CreateWallet",
+                            buttonText = stringResource(id = R.string.create),
                             onSubmitForm = {
                                 viewModel.persistPrivateKey()
                                 navController.navigate(AppScreen.WalletScreen.route)

@@ -11,13 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import androidx.navigation.compose.rememberNavController
-import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
+import com.cerberus.galtwallet.R
+
 
 private const val TAG = "MnemonicWordsScreen"
 
@@ -77,7 +77,7 @@ fun MnemonicWordsScreen(
             ) {
                 Column {
                     Text(
-                        text = "Write down your mnemonic code",
+                        text = stringResource(id = R.string.write_down_your_mnemonic_code),
                         style = MaterialTheme.typography.h2
                     )
                 }
@@ -117,7 +117,7 @@ fun MnemonicWordsScreen(
                             onNextClick()
                         },
                     ) {
-                        Text(text = "Next")
+                        Text(text = stringResource(id = R.string.next))
                     }
                 }
             }

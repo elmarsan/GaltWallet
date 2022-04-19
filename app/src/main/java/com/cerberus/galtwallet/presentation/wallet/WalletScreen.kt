@@ -1,7 +1,5 @@
 package com.cerberus.galtwallet.presentation.wallet
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -9,8 +7,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -20,6 +18,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
+import com.cerberus.galtwallet.R
 
 @Composable
 fun WalletScreen(
@@ -68,7 +67,7 @@ fun WalletScreenContent(navController: NavController) {
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = "Balance",
+                            text = stringResource(id = R.string.balance),
                             style = MaterialTheme.typography.h4
                         )
                     }
@@ -79,13 +78,13 @@ fun WalletScreenContent(navController: NavController) {
                     ) {
                         Row {
                             Button(onClick = { navController.navigate(AppScreen.SendScreen.route) }) {
-                                Text("Send")
+                                Text(text = stringResource(id = R.string.send))
                             }
 
                             Spacer(modifier = Modifier.width(25.dp))
 
                             Button(onClick = { navController.navigate(AppScreen.ReceiveScreen.route) }) {
-                                Text("Receive")
+                                Text(text = stringResource(id = R.string.receive))
                             }
                         }
                     }

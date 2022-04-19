@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GaltWallet</string>
+    <string name="send">Enviar</string>
+    <string name="receive">Recibir</string>
+    <string name="wallet">Cartera</string>
+    <string name="history">Historial</string>
+    <string name="settings">Ajustes</string>
+    <string name="scan">Escanear</string>
+    <string name="generate">Generar</string>
+    <string name="copy">Copiar</string>
+    <string name="create">Crear</string>
+    <string name="recover">Recuperar</string>
+    <string name="create_wallet">Crear cartera</string>
+    <string name="balance">Balance</string>
+    <string name="write_down_your_mnemonic_code">Escribe tu código de recuperación</string>
+    <string name="next">Siguiente</string>
+</resources>

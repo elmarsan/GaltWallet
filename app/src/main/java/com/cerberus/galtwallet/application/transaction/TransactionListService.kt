@@ -1,4 +1,4 @@
-package com.cerberus.galtwallet.application
+package com.cerberus.galtwallet.application.transaction
 
 import com.cerberus.galtwallet.domain.Transaction
 import com.cerberus.galtwallet.domain.repository.TransactionRepository

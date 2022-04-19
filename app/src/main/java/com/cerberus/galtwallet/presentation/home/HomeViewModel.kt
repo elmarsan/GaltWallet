@@ -4,9 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cerberus.galtwallet.application.wallet.PrivateKeyFinder
-import com.cerberus.galtwallet.domain.PrivateKey
-import com.cerberus.galtwallet.presentation.initialize.create.CreateWalletState
+import com.cerberus.galtwallet.application.privatekey.PrivateKeyFinder
 import com.cerberus.galtwallet.shared.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

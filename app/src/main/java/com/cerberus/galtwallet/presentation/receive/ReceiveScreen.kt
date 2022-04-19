@@ -5,7 +5,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,19 +13,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.R
 import com.cerberus.galtwallet.domain.Address
-import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
 
 val address = Address("1FsJGzSHk7zr7JWAvtEPLV7sBXAHaYiqo2")
@@ -116,7 +110,7 @@ fun ReceiveScreen(
                             Spacer(modifier = Modifier.width(5.dp))
 
                             Text(
-                                text = "Generate",
+                                text = stringResource(id = R.string.generate),
                                 style = MaterialTheme.typography.h4
                             )
                         }

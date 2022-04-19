@@ -1,8 +1,10 @@
 package com.cerberus.galtwallet.presentation.setup.recovery
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.cerberus.galtwallet.R
 import com.cerberus.galtwallet.domain.PrivateKey
 import com.cerberus.galtwallet.presentation.setup.component.RecoveryMnemonicForm
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
@@ -26,7 +28,7 @@ fun RecoveryWalletScreen(
                 LoadingSpinner()
             } else {
                 RecoveryMnemonicForm(
-                    buttonText = "Recover",
+                    buttonText = stringResource(id = R.string.restore),
                     onSubmitForm = { mnemonic ->
                         viewModel.persistPrivateKey(PrivateKey.fromMnemonicList(mnemonic))
                     }

@@ -22,4 +22,5 @@
     <string name="cancel">Cancelar</string>
     <string name="understood_delete_anyway">Entendido, borrar de todos modos</string>
     <string name="permanently_delete_current_wallet">Borrar permanentemente la cartera actual</string>
+    <string name="restore">Restaurar</string>
 </resources>

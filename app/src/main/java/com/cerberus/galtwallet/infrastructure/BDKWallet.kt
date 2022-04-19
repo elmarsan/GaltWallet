@@ -29,7 +29,7 @@ class BDKWallet @Inject constructor(
 
         wallet = Wallet(
             "wpkh([c258d2e4/84/1/0]${privateKey.key}/0/*)",
-            "wpkh([c258d2e4/84/1/0]$${privateKey.key}/1/*)",
+            "wpkh([c258d2e4/84/1/0]${privateKey.key}/1/*)",
             Network.TESTNET,
             DatabaseConfig.Memory,
             BlockchainConfig.Electrum(

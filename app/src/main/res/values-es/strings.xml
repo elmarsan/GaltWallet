@@ -15,4 +15,11 @@
     <string name="balance">Balance</string>
     <string name="write_down_your_mnemonic_code">Escribe tu código de recuperación</string>
     <string name="next">Siguiente</string>
+    <string name="interface_text">Interfaz</string>
+    <string name="language">Idioma</string>
+    <string name="delete_wallet">Borrar cartera</string>
+    <string name="delete_wallet_description">Esto borrará de forma permanente tu cartera, asegurate de tener una copia de seguridad antes.\nDe lo contrario tus fondos se perderán de forma permanente</string>
+    <string name="cancel">Cancelar</string>
+    <string name="understood_delete_anyway">Entendido, borrar de todos modos</string>
+    <string name="permanently_delete_current_wallet">Borrar permanentemente la cartera actual</string>
 </resources>

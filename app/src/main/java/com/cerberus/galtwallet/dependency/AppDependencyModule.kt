@@ -2,8 +2,10 @@ package com.cerberus.galtwallet.dependency
 
 import android.content.Context
 import android.util.Log
+import com.cerberus.galtwallet.domain.Wallet
 import com.cerberus.galtwallet.domain.repository.PrivateKeyRepository
 import com.cerberus.galtwallet.domain.repository.TransactionRepository
+import com.cerberus.galtwallet.infrastructure.BDKWallet
 import com.cerberus.galtwallet.infrastructure.repository.MockTransactionRepository
 import com.cerberus.galtwallet.infrastructure.repository.SharedPreferencePrivateKeyRepository
 import dagger.Module
@@ -11,6 +13,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 private const val TAG = "AppModule"
@@ -32,4 +35,10 @@ class AppModule {
     fun providePrivateKeyRepository(
         @ApplicationContext context: Context
     ): PrivateKeyRepository = SharedPreferencePrivateKeyRepository(context)
+
+    @Provides
+    @Singleton
+    fun provideWallet(
+        privateKeyRepository: PrivateKeyRepository
+    ): Wallet = BDKWallet(privateKeyRepository)
 }

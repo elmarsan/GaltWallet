@@ -1,7 +1,9 @@
 package com.cerberus.galtwallet.domain
 
 
-abstract class Wallet(protected val privateKey: PrivateKey) {
+abstract class Wallet {
+    abstract suspend fun setup()
+
     abstract fun getBalance(): Amount
 
     abstract fun getNewAddress(): Address

@@ -1,7 +1,7 @@
 package com.cerberus.galtwallet.presentation.navigation
 
 sealed class AppScreen(val route: String) {
-    object HomeScreen: AppScreen("HomeScreenRoute")
+    object SetupScreen: AppScreen("SetupScreenRoute")
     object WalletScreen: AppScreen("WalletScreenRoute")
     object TransactionScreen: AppScreen("TransactionScreenRouter")
     object SettingsScreen: AppScreen("SettingsScreenRoute")

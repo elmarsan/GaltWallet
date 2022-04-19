@@ -14,4 +14,11 @@
     <string name="balance">Balance</string>
     <string name="write_down_your_mnemonic_code">Write down your mnemonic code</string>
     <string name="next">Next</string>
+    <string name="interface_text">Interface</string>
+    <string name="language">Language</string>
+    <string name="delete_wallet">Delete wallet</string>
+    <string name="delete_wallet_description">This will completely remove your wallet, make sure you have a backup before do it.\nOtherwise your funds will be lost permanently</string>
+    <string name="cancel">Cancel</string>
+    <string name="understood_delete_anyway">Understood, delete anyway</string>
+    <string name="permanently_delete_current_wallet">Permanently delete your current wallet</string>
 </resources>

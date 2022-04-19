@@ -19,12 +19,16 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             GaltWalletTheme {
-                if (viewModel.loading.value) {
-                    LoadingSpinner()
-                } else if (viewModel.existingWallet.value) {
-                    AppNavigation(startDestination = AppScreen.WalletScreen)
-                } else {
-                    AppNavigation(startDestination = AppScreen.SetupScreen)
+                when {
+                    viewModel.loading.value -> {
+                        LoadingSpinner()
+                    }
+                    viewModel.existingWallet.value -> {
+                        AppNavigation(startDestination = AppScreen.WalletScreen)
+                    }
+                    else -> {
+                        AppNavigation(startDestination = AppScreen.SetupScreen)
+                    }
                 }
             }
         }

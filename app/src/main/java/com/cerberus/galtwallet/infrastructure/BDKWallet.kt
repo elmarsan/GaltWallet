@@ -3,9 +3,8 @@ package com.cerberus.galtwallet.infrastructure
 import android.util.Log
 import com.cerberus.galtwallet.domain.Address
 import com.cerberus.galtwallet.domain.Amount
-import com.cerberus.galtwallet.domain.PrivateKey
-import com.cerberus.galtwallet.domain.Wallet
 import com.cerberus.galtwallet.domain.Transaction
+import com.cerberus.galtwallet.domain.Wallet
 import com.cerberus.galtwallet.domain.repository.PrivateKeyRepository
 import org.bitcoindevkit.*
 import javax.inject.Inject
@@ -26,6 +25,8 @@ class BDKWallet @Inject constructor(
     override suspend fun setup() {
         val privateKey = privateKeyRepository.find()!!
 
+        Log.d(TAG, "setup wallet with private key: ${privateKey.key}")
+
         wallet = Wallet(
             "wpkh([c258d2e4/84/1/0]${privateKey.key}/0/*)",
             "wpkh([c258d2e4/84/1/0]$${privateKey.key}/1/*)",
@@ -37,7 +38,6 @@ class BDKWallet @Inject constructor(
         )
 
         wallet.sync(LogProgress, null)
-
     }
 
     override fun getBalance(): Amount {

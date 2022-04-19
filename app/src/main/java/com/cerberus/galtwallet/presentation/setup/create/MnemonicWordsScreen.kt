@@ -1,4 +1,4 @@
-package com.cerberus.galtwallet.presentation.initialize.create
+package com.cerberus.galtwallet.presentation.setup.create
 
 import android.util.Log
 import androidx.compose.foundation.layout.*

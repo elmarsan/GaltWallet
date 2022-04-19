@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.presentation.setup.SetupScreen
-import com.cerberus.galtwallet.presentation.initialize.create.CreateWalletScreen
-import com.cerberus.galtwallet.presentation.initialize.recovery.RecoveryWalletScreen
+import com.cerberus.galtwallet.presentation.setup.create.CreateWalletScreen
+import com.cerberus.galtwallet.presentation.setup.recovery.RecoveryWalletScreen
 import com.cerberus.galtwallet.presentation.receive.ReceiveScreen
 import com.cerberus.galtwallet.presentation.send.SendScreen
 import com.cerberus.galtwallet.presentation.settings.SettingsScreen

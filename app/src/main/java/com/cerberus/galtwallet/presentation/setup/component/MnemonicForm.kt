@@ -1,6 +1,5 @@
-package com.cerberus.galtwallet.presentation.initialize.component
+package com.cerberus.galtwallet.presentation.setup.component
 
-import android.content.res.Configuration
 import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,7 +10,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
@@ -59,14 +57,42 @@ fun CreateMnemonicForm(
 @Composable
 fun RecoveryMnemonicForm(
     buttonText: String,
-    onSubmitForm: () -> Unit
+    onSubmitForm: (mnemonic: List<String>) -> Unit
 ) {
+    val leftColumnFields = mutableListOf<MnemonicWord>()
+    val rightColumnFields = mutableListOf<MnemonicWord>()
+
+    for (i in 0..11) {
+        var word by remember { mutableStateOf("") }
+
+        val field = MnemonicWord(
+            word = word,
+            onWordChange = { word = it },
+            expectedWord = null,
+            wordNumber = i + 1
+        )
+
+        if (i < 6) {
+            leftColumnFields.add(field)
+        } else {
+            rightColumnFields.add(field)
+        }
+    }
+
+    fun validForm(): Boolean {
+        return leftColumnFields.none { it.isEmpty() } && rightColumnFields.none { it.isEmpty() }
+    }
+
+    fun getMnemonic(): List<String> {
+        return (leftColumnFields + rightColumnFields).map { it.word }
+    }
+
     MnemonicFormView(
-        leftColumnFields = emptyList(),
-        rightColumnFields = emptyList(),
+        leftColumnFields = leftColumnFields,
+        rightColumnFields = rightColumnFields,
         submitButtonText = buttonText,
-        isValidForm = { true },
-        onSubmitForm = onSubmitForm
+        isValidForm = { validForm() },
+        onSubmitForm = { onSubmitForm(getMnemonic()) }
     )
 }
 

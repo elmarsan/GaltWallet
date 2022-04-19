@@ -72,7 +72,7 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
     // Bitcoin
-    implementation("org.bitcoindevkit:bdk-android:0.5.1")
+    implementation("org.bitcoindevkit:bdk-android:0.5.2")
 
     // QRCode
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'

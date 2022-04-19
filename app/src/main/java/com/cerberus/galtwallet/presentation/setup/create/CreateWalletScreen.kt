@@ -1,4 +1,4 @@
-package com.cerberus.galtwallet.presentation.initialize.create
+package com.cerberus.galtwallet.presentation.setup.create
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.cerberus.galtwallet.presentation.initialize.component.CreateMnemonicForm
+import com.cerberus.galtwallet.presentation.setup.component.CreateMnemonicForm
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
 import com.cerberus.galtwallet.shared.component.LoadingSpinner
@@ -26,7 +26,6 @@ fun CreateWalletScreen(
     viewModel: CreateWalletViewModel = hiltViewModel()
 ) {
     var step by remember { mutableStateOf(CreateWalletStep.SHOW_MNEMONIC) }
-    val state = viewModel.state.value
 
     fun onGoBack() {
         if (step == CreateWalletStep.SHOW_MNEMONIC) {
@@ -44,15 +43,15 @@ fun CreateWalletScreen(
         onGoBack = { onGoBack() },
         content = {
             Box(modifier = Modifier.fillMaxSize()) {
-                if (state.privateKey != null) {
+                if (viewModel.privateKey.value != null) {
                     if (step == CreateWalletStep.SHOW_MNEMONIC) {
                         MnemonicWordsScreen(
-                            mnemonic = state.privateKey.mnemonic,
+                            mnemonic = viewModel.privateKey.value!!.mnemonic,
                             onNextClick = { step = CreateWalletStep.VALIDATE_MNEMONIC }
                         )
                     } else if (step == CreateWalletStep.VALIDATE_MNEMONIC){
                         CreateMnemonicForm(
-                            mnemonic = state.privateKey.mnemonic,
+                            mnemonic = viewModel.privateKey.value!!.mnemonic,
                             buttonText = stringResource(id = R.string.create),
                             onSubmitForm = {
                                 viewModel.persistPrivateKey()
@@ -62,7 +61,7 @@ fun CreateWalletScreen(
                     }
                 }
 
-                if (state.isLoading) {
+                if (viewModel.loading.value) {
                     LoadingSpinner()
                 }
             }

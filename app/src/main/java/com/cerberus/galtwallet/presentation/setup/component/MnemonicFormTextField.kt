@@ -1,4 +1,4 @@
-package com.cerberus.galtwallet.presentation.initialize.component
+package com.cerberus.galtwallet.presentation.setup.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,7 +11,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.material.Icon
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import com.cerberus.galtwallet.R
 
 data class MnemonicWord(

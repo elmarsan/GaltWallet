@@ -41,7 +41,7 @@ class BDKWallet @Inject constructor(
     }
 
     override fun getBalance(): Amount {
-        return Amount(wallet.getBalance())
+        return Amount(wallet.getBalance().toLong())
     }
 
     override fun getNewAddress(): Address {

@@ -22,7 +22,7 @@ fun TransactionScreen(
             } else {
               LazyColumn {
                   items(viewModel.data.value) {
-                      Text(text = it.amount.satoshis)
+                      Text(text = it.amount.btcString)
                   }
               }
             }

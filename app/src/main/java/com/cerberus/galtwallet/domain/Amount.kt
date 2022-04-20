@@ -1,13 +1,15 @@
 package com.cerberus.galtwallet.domain
 
-class Amount(private val satoshi: ULong) {
-    private val btc = satoshi / 100000000u
+import java.math.BigDecimal
+
+class Amount(private val satoshi: Long) {
+    private val btc = BigDecimal(satoshi.toString())
 
     val satoshis get(): String {
         return this.satoshi.toString()
     }
 
     val btcString get(): String {
-        return "%.8f".format(btc)
+        return btc.divide(BigDecimal("100000000")).toString()
     }
 }

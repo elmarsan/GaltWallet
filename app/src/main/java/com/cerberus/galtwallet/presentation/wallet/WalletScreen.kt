@@ -9,11 +9,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.cerberus.galtwallet.presentation.navigation.AppScreen
@@ -23,12 +25,19 @@ import com.cerberus.galtwallet.R
 @Composable
 fun WalletScreen(
     navController: NavController,
+    viewModel: WalletViewModel = hiltViewModel()
 ) {
-    WalletScreenContent(navController = navController)
+    WalletScreenContent(
+        navController = navController,
+        viewModel = viewModel
+    )
 }
 
 @Composable
-fun WalletScreenContent(navController: NavController) {
+fun WalletScreenContent(
+    navController: NavController,
+    viewModel: WalletViewModel = hiltViewModel()
+) {
     AppScaffold(
         onGoBack = null,
         header = "WalletScreen",
@@ -67,8 +76,9 @@ fun WalletScreenContent(navController: NavController) {
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = stringResource(id = R.string.balance),
-                            style = MaterialTheme.typography.h4
+                            text = stringResource(id = R.string.balance) + ": ${viewModel.balance.btcString}",
+                            style = MaterialTheme.typography.h4,
+                            fontWeight = FontWeight(600)
                         )
                     }
 

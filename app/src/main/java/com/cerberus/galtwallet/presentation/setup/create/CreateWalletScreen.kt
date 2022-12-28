@@ -40,7 +40,7 @@ fun CreateWalletScreen(
         showTopBar = true,
         showBottomBar = false,
         onGoBack = { onGoBack() },
-        header = stringResource(id = R.string.create_wallet),
+        header = stringResource(id = R.string.app_name),
         content = {
             Box(modifier = Modifier.fillMaxSize()) {
                 if (viewModel.privateKey.value != null) {

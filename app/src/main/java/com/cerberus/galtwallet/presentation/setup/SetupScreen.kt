@@ -34,19 +34,29 @@ fun SetupScreen(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Button(onClick = { navController.navigate(AppScreen.CreateWalletScreen.route) }) {
+                    Button(
+                        onClick = { navController.navigate(AppScreen.CreateWalletScreen.route) },
+                        modifier = Modifier
+                            .width(120.dp)
+                            .height(50.dp)
+                    ) {
                         Text(text = stringResource(id = R.string.create))
                     }
 
                     Spacer(modifier = Modifier.width(20.dp))
 
-                    Button(onClick = { navController.navigate(AppScreen.RecoveryWalletScreen.route) }) {
+                    Button(
+                        onClick = { navController.navigate(AppScreen.RecoveryWalletScreen.route) },
+                        modifier = Modifier
+                            .width(120.dp)
+                            .height(50.dp)
+                    ) {
                         Text(text = stringResource(id = R.string.recover))
                     }
                 }
             }
         },
-        header = "SetupScreen",
+        header = stringResource(id = R.string.app_name),
         showTopBar = true,
         showBottomBar = false
     )

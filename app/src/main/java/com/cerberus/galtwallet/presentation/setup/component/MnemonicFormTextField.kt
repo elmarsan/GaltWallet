@@ -38,11 +38,13 @@ fun MnemonicFormTextField(mnemonicWord: MnemonicWord) {
     var isFocused by remember { mutableStateOf(false) }
     val displayError = (visited && !isFocused) && !mnemonicWord.isValid() && !mnemonicWord.isEmpty()
 
+    println(mnemonicWord)
+
     OutlinedTextField(
         value = mnemonicWord.word,
         onValueChange = mnemonicWord.onWordChange,
         isError = displayError,
-        label = { Text("${mnemonicWord.expectedWord}") },
+        label = { Text((mnemonicWord.wordNumber + 1).toString()) },
         modifier = Modifier
             .fillMaxWidth()
             .onFocusChanged { st ->

@@ -37,10 +37,10 @@ fun CreateWalletScreen(
 
     AppScaffold(
         navController = navController,
-        header = "CreateWalletScreen",
         showTopBar = true,
         showBottomBar = false,
         onGoBack = { onGoBack() },
+        header = stringResource(id = R.string.create_wallet),
         content = {
             Box(modifier = Modifier.fillMaxSize()) {
                 if (viewModel.privateKey.value != null) {

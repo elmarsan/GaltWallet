@@ -19,7 +19,7 @@ fun RecoveryWalletScreen(
 ) {
     AppScaffold(
         navController = navController,
-        header = "RecoveryWalletScreen",
+        header = stringResource(id = R.string.recover_wallet),
         showTopBar = true,
         showBottomBar = false,
         onGoBack = { navController.popBackStack() },

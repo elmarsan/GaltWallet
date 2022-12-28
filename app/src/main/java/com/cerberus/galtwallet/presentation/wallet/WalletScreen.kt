@@ -1,5 +1,7 @@
 package com.cerberus.galtwallet.presentation.wallet
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -8,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,14 +43,15 @@ fun WalletScreenContent(
 ) {
     AppScaffold(
         onGoBack = null,
-        header = "WalletScreen",
         navController = navController,
         showBottomBar = true,
         showTopBar = true,
+        header = stringResource(id = R.string.app_name),
         content = {
             Box(
                 modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.TopStart
+                contentAlignment = Alignment.TopStart,
+
             ) {
                 val balance = "balance"
                 val actions = "actions"
@@ -60,26 +64,37 @@ fun WalletScreenContent(
                         top.linkTo(parent.top)
                         start.linkTo(parent.start)
                         width = Dimension.percent(1f)
-                        height = Dimension.percent(0.2f)
+                        height = Dimension.percent(0.5f)
                     }
 
                     constrain(actionSection) {
                         top.linkTo(balanceSection.bottom)
                         width = Dimension.percent(1f)
-                        height = Dimension.percent(0.8f)
+                        height = Dimension.percent(0.4f)
                     }
                 }
 
                 ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
                     Box(
                         modifier = Modifier.layoutId(balance),
-                        contentAlignment = Alignment.Center,
+                        contentAlignment = Alignment.TopCenter,
+
                     ) {
-                        Text(
-                            text = stringResource(id = R.string.balance) + ": ${viewModel.balance.btcString}",
-                            style = MaterialTheme.typography.h4,
-                            fontWeight = FontWeight(600)
-                        )
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                        ) {
+                            Image(
+                                painterResource(R.drawable.btc_logo),
+                                contentDescription = "btc_logo",
+                            )
+
+                            Text(
+                                text = stringResource(id = R.string.balance) + ": ${viewModel.balance.btcString}",
+                                style = MaterialTheme.typography.h4,
+                                fontWeight = FontWeight(600)
+                            )
+                        }
                     }
 
                     Box(
@@ -87,13 +102,23 @@ fun WalletScreenContent(
                         contentAlignment = Alignment.Center,
                     ) {
                         Row {
-                            Button(onClick = { navController.navigate(AppScreen.SendScreen.route) }) {
+                            Button(
+                                onClick = { navController.navigate(AppScreen.SendScreen.route) },
+                                modifier = Modifier
+                                    .width(120.dp)
+                                    .height(50.dp)
+                            ) {
                                 Text(text = stringResource(id = R.string.send))
                             }
 
                             Spacer(modifier = Modifier.width(25.dp))
 
-                            Button(onClick = { navController.navigate(AppScreen.ReceiveScreen.route) }) {
+                            Button(
+                                onClick = { navController.navigate(AppScreen.ReceiveScreen.route) },
+                                modifier = Modifier
+                                    .width(120.dp)
+                                    .height(50.dp)
+                            ) {
                                 Text(text = stringResource(id = R.string.receive))
                             }
                         }

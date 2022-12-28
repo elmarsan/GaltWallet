@@ -74,7 +74,7 @@ fun SettingScreenContent(
                }
            }
         },
-        header = "SettingsScreen",
+        header = stringResource(id = R.string.settings),
         navController = navController,
         showBottomBar = true,
         showTopBar = true

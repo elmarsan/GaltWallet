@@ -36,4 +36,9 @@ val Typography = Typography(
         fontWeight = FontWeight.Medium,
         fontSize = 12.sp
     ),
+    button = TextStyle(
+        fontWeight = FontWeight.SemiBold,
+        color = WhitePrimary,
+        fontSize = 16.sp
+    )
 )

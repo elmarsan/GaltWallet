@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">GaltWallet</string>
+    <string name="app_name">Galt Wallet</string>
+
     <string name="send">Send</string>
     <string name="receive">Receive</string>
+    <string name="send_funds">Send funds</string>
+    <string name="receive_funds">Receive funds</string>
     <string name="wallet">Wallet</string>
     <string name="history">History</string>
     <string name="settings">Settings</string>
@@ -11,6 +14,7 @@
     <string name="create">Create</string>
     <string name="recover">Recover</string>
     <string name="create_wallet">Create wallet</string>
+    <string name="recover_wallet">Recover wallet</string>
     <string name="balance">Balance</string>
     <string name="write_down_your_mnemonic_code">Write down your mnemonic code</string>
     <string name="next">Next</string>
@@ -22,4 +26,5 @@
     <string name="understood_delete_anyway">Understood, delete anyway</string>
     <string name="permanently_delete_current_wallet">Permanently delete your current wallet</string>
     <string name="restore">Restore</string>
+    <string name="transaction_history">Transaction history</string>
 </resources>

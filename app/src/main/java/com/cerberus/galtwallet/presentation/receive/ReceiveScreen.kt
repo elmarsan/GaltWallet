@@ -31,10 +31,10 @@ fun ReceiveScreen(
 ) {
     AppScaffold(
         navController = navController,
-        header = "ReceiveScreen",
         onGoBack = { navController.popBackStack() },
         showBottomBar = true,
         showTopBar = true,
+        header = stringResource(id = R.string.receive_funds),
         content = {
             if (viewModel.loading.value) {
                 LoadingSpinner()

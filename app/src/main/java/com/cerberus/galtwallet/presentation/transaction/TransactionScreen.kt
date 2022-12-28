@@ -4,8 +4,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.cerberus.galtwallet.R
 import com.cerberus.galtwallet.presentation.ui.layout.AppScaffold
 import com.cerberus.galtwallet.shared.component.LoadingSpinner
 
@@ -27,7 +29,7 @@ fun TransactionScreen(
               }
             }
         },
-        header = "TransactionScreen",
+        header = stringResource(id = R.string.transaction_history),
         navController = navController,
         showBottomBar = true,
         showTopBar = true

@@ -35,7 +35,8 @@ You can run the app with [Android studio](https://developer.android.com/studio)
 
     img {
         margin: 0 .5rem 1.2rem 0;
-        width: 350px;
+        width: 300px;
+        height: 650px;
     }
 </style>
 

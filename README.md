@@ -28,25 +28,13 @@ You can run the app with [Android studio](https://developer.android.com/studio)
 
 ### Screenshots
 
-<style>
-    div {
-        float: right;
-    }
-
-    img {
-        margin: 0 .5rem 1.2rem 0;
-        width: 300px;
-        height: 650px;
-    }
-</style>
-
 <div style="float: right">
-    <img src="./img/mnemonic-generation-screen.png"/> 
-    <img src="./img/mnemonic-validation-success.png"/> 
-    <img src="./img/mnemonic-validation-wrong.png"/> 
-    <img src="./img/wallet-screen.png""/> 
-    <img src="./img/tx-history-screen.png"/> 
-    <img src="./img/receive-screen.png""/> 
-    <img src="./img/setup-screen.png""/> 
-    <img src="./img/settings-screen.png""/> 
+    <img src="./img/mnemonic-generation-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/mnemonic-validation-success.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/mnemonic-validation-wrong.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/wallet-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/tx-history-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/receive-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/setup-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
+    <img src="./img/settings-screen.png" style="width: 350px; height: 600px; margin: 1rem;"/> 
 </div>

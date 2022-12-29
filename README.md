@@ -28,19 +28,24 @@ You can run the app with [Android studio](https://developer.android.com/studio)
 
 ### Screenshots
 
-<div style="margin-bottom: 3rem; display: flex; flex-flow: row nowrap; justify-content: space-between">
-    <img src="./img/mnemonic-generation-screen.png" alt="drawing" width="350"/> 
-    <img src="./img/mnemonic-validation-success.png" alt="drawing" width="350"/> 
-    <img src="./img/mnemonic-validation-wrong.png" alt="drawing" width="350"/> 
-</div>
+<style>
+    div {
+        float: right;
+    }
 
-<div style="margin-bottom: 3rem; display: flex; flex-flow: row nowrap; justify-content: space-between">
-    <img src="./img/wallet-screen.png" alt="drawing" width="350"/> 
-    <img src="./img/tx-history-screen.png" alt="drawing" width="350"/> 
-    <img src="./img/receive-screen.png" alt="drawing" width="350"/> 
-</div>
+    img {
+        margin: 0 .5rem 1.2rem 0;
+        width: 350px;
+    }
+</style>
 
-<div style="margin-bottom: 3rem; display: flex; flex-flow: row nowrap; align-items: center; justify-content: space-around">
-    <img src="./img/setup-screen.png" alt="drawing" width="350"/> 
-    <img src="./img/settings-screen.png" alt="drawing" width="350"/> 
+<div style="float: right">
+    <img src="./img/mnemonic-generation-screen.png"/> 
+    <img src="./img/mnemonic-validation-success.png"/> 
+    <img src="./img/mnemonic-validation-wrong.png"/> 
+    <img src="./img/wallet-screen.png""/> 
+    <img src="./img/tx-history-screen.png"/> 
+    <img src="./img/receive-screen.png""/> 
+    <img src="./img/setup-screen.png""/> 
+    <img src="./img/settings-screen.png""/> 
 </div>

@@ -1,7 +1,6 @@
 package com.cerberus.galtwallet.presentation.wallet
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -90,7 +89,7 @@ fun WalletScreenContent(
                             )
 
                             Text(
-                                text = stringResource(id = R.string.balance) + ": ${viewModel.balance.btcString}",
+                                text = stringResource(id = R.string.balance) + ": ${viewModel.balance.toString()}",
                                 style = MaterialTheme.typography.h4,
                                 fontWeight = FontWeight(600)
                             )

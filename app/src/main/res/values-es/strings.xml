@@ -2,7 +2,9 @@
 <resources>
     <string name="app_name">GaltWallet</string>
     <string name="send">Enviar</string>
+    <string name="sent">Enviado</string>
     <string name="receive">Recibir</string>
+    <string name="received">Recibido</string>
     <string name="send_funds">Enviar fondos</string>
     <string name="receive_funds">Recibir fondos</string>
     <string name="wallet">Cartera</string>
@@ -27,4 +29,5 @@
     <string name="permanently_delete_current_wallet">Borrar permanentemente la cartera actual</string>
     <string name="restore">Restaurar</string>
     <string name="transaction_history">Historial de transacciones</string>
+    <string name="transaction_id">Id de la transacción</string>
 </resources>

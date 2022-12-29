@@ -1,8 +1,7 @@
 package com.cerberus.galtwallet.infrastructure
 
 import android.util.Log
-import com.cerberus.galtwallet.domain.Address
-import com.cerberus.galtwallet.domain.Amount
+import com.cerberus.galtwallet.domain.*
 import com.cerberus.galtwallet.domain.Transaction
 import com.cerberus.galtwallet.domain.Wallet
 import com.cerberus.galtwallet.domain.repository.PrivateKeyRepository
@@ -27,7 +26,7 @@ class BDKWallet @Inject constructor(
 
         Log.d(TAG, "setup wallet with private key: ${privateKey.key}")
 
-        wallet = Wallet(
+        wallet = org.bitcoindevkit.Wallet(
             "wpkh([c258d2e4/84/1/0]${privateKey.key}/0/*)",
             "wpkh([c258d2e4/84/1/0]${privateKey.key}/1/*)",
             Network.TESTNET,
@@ -41,14 +40,51 @@ class BDKWallet @Inject constructor(
     }
 
     override fun getBalance(): Amount {
-        return Amount(wallet.getBalance().toLong())
+        return Amount(wallet.getBalance())
     }
 
     override fun getNewAddress(): Address {
         return Address(wallet.getNewAddress())
     }
 
-    override fun broadcastTransaction(transaction: Transaction) {
-        TODO("Not yet implemented")
+    override fun broadcastTransaction(transactionBroadcastDTO: TransactionBroadcastDTO) {
+        val psbt = PartiallySignedBitcoinTransaction(
+            wallet = wallet,
+            recipient = transactionBroadcastDTO.to,
+            amount = transactionBroadcastDTO.amount.uLongAmount,
+            // Fixed 300 sat per byte
+            feeRate = 300f
+        )
+
+        wallet.sign(psbt)
+        wallet.broadcast(psbt)
+    }
+
+    override fun getTransactionList(): List<Transaction> {
+        val bdkTransactionList: List<org.bitcoindevkit.Transaction> = wallet.getTransactions()
+
+        return bdkTransactionList.map { tx: org.bitcoindevkit.Transaction ->
+            val txDetails = when (tx) {
+                is org.bitcoindevkit.Transaction.Confirmed -> tx.details
+                is org.bitcoindevkit.Transaction.Unconfirmed -> tx.details
+            }
+
+            val type: TransactionType
+            val amount: Amount
+
+            if (txDetails.sent > 0u) {
+                type = TransactionType.OUTCOMING
+                amount = Amount(txDetails.sent)
+            } else {
+                type = TransactionType.INCOMING
+                amount = Amount(txDetails.received)
+            }
+
+            Transaction(
+                amount = amount,
+                txId = txDetails.txid,
+                type = type
+            )
+        }
     }
 }

@@ -1,11 +1,11 @@
 package com.cerberus.galtwallet.domain
 
+enum class TransactionType {
+    INCOMING, OUTCOMING
+}
+
 data class Transaction(
-    val confirmations: Int?,
-    val hash: String?,
-    val fees: Amount,
+    val txId: String,
     val amount: Amount,
-    val block: Block,
-    val from: String?,
-    val to: String?
+    val type: TransactionType
 )

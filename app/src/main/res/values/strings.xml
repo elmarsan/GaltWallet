@@ -2,7 +2,9 @@
     <string name="app_name">Galt Wallet</string>
 
     <string name="send">Send</string>
+    <string name="sent">Sent</string>
     <string name="receive">Receive</string>
+    <string name="received">Received</string>
     <string name="send_funds">Send funds</string>
     <string name="receive_funds">Receive funds</string>
     <string name="wallet">Wallet</string>
@@ -27,4 +29,5 @@
     <string name="permanently_delete_current_wallet">Permanently delete your current wallet</string>
     <string name="restore">Restore</string>
     <string name="transaction_history">Transaction history</string>
+    <string name="transaction_id">Transaction id</string>
 </resources>

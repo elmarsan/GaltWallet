@@ -1,15 +1,11 @@
 package com.cerberus.galtwallet.presentation.receive
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.res.painterResource
@@ -77,11 +73,9 @@ fun ReceiveScreen(
                                     contentDescription = "Address QR",
                                 )
 
-                                Spacer(modifier = Modifier.height(8.dp))
+                                Spacer(modifier = Modifier.height(24.dp))
 
-                                Row(
-                                    modifier = Modifier.border(border = BorderStroke(1.5.dp, color = Color.Gray))
-                                ) {
+                                Row {
                                     TextField(
                                         value = viewModel.address.value!!.plainAddress,
                                         onValueChange = {},
@@ -91,8 +85,7 @@ fun ReceiveScreen(
                                         trailingIcon = {
                                             Icon(
                                                 painter = painterResource(id = R.drawable.ic_baseline_content_copy_24),
-                                                contentDescription = null,
-                                                modifier = Modifier.background(color = Color.LightGray)
+                                                contentDescription = null
                                             )
                                         }
                                     )
